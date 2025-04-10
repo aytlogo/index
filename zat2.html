@@ -1,0 +1,354 @@
+﻿<html>
+<head>
+<title>HACKED BY ZÜMRÜDÜ ANKA TEAM</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://i.hizliresim.com/mlmlzgo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.terminal-container {
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    box-shadow: 0 0 20px #ff0000, 
+                inset 0 0 15px rgba(255, 0, 0, 0.7);
+    padding: 20px;
+    width: 85%;
+    max-width: 750px;
+    max-height: 60vh;
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(1px);
+    box-sizing: border-box;
+    margin: 20px 0;
+}
+
+.terminal-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(rgba(0, 255, 0, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.08) 1px, transparent 1px);
+    background-size: 10px 10px;
+    animation: scanline 6s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes scanline {
+    from { background-position: 0 0; }
+    to { background-position: 0 100vh; }
+}
+
+.terminal-text {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    line-height: 1.6;
+    text-shadow: 0 0 8px #00ff00;
+    white-space: pre;
+    overflow-y: auto;
+    height: 100%;
+    padding: 15px;
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+
+.terminal-text::-webkit-scrollbar {
+    display: none;
+}
+
+.terminal-text span.header {
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 0 0 8px #ff0000;
+}
+
+.terminal-text span.success {
+    color: #00ff00;
+    text-shadow: 0 0 8px #00ff00;
+}
+
+.terminal-text span.warning {
+    color: #ffff00;
+    text-shadow: 0 0 8px #ffff00;
+    animation: pulse 2s infinite;
+}
+
+.terminal-text span.danger {
+    color: #ff0000;
+    text-shadow: 0 0 8px #ff0000;
+    animation: blink 0.8s infinite;
+}
+
+.terminal-text span.highlight {
+    color: #00ffff;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.terminal-text span.special {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+    animation: rainbow 3s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes rainbow {
+    0% { color: #ff0000; }
+    20% { color: #ffff00; }
+    40% { color: #00ff00; }
+    60% { color: #00ffff; }
+    80% { color: #0000ff; }
+    100% { color: #ff00ff; }
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: #00ff00;
+    vertical-align: middle;
+    animation: blink 0.8s infinite, glow 1.5s infinite;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px #00ff00; }
+    50% { box-shadow: 0 0 20px #00ff00; }
+}
+
+.hacked-message {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    z-index: 1;
+    margin: 20px 0;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+.hello-admin {
+    color: white;
+    font-size: 5vw;
+    display: block;
+    text-shadow: 0 0 15px #ffffff, 
+                 0 0 30px rgba(255, 255, 255, 0.5);
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 15px;
+}
+
+.system-hacked {
+    color: #ff0000;
+    font-size: 4vw;
+    display: block;
+    margin-top: 15px;
+    text-shadow: 0 0 15px #ff0000, 
+                 0 0 30px rgba(255, 0, 0, 0.5);
+    animation: pulse 2.5s infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: #ff0000;
+    border-style: solid;
+    border-width: 0;
+    opacity: 0.8;
+}
+
+.corner-tl {
+    top: 10px;
+    left: 10px;
+    border-top-width: 3px;
+    border-left-width: 3px;
+}
+
+.corner-tr {
+    top: 10px;
+    right: 10px;
+    border-top-width: 3px;
+    border-right-width: 3px;
+}
+
+.corner-bl {
+    bottom: 10px;
+    left: 10px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+}
+
+.corner-br {
+    bottom: 10px;
+    right: 10px;
+    border-bottom-width: 3px;
+    border-right-width: 3px;
+}
+
+@media (max-width: 768px) {
+    .hello-admin {
+        font-size: 32px;
+    }
+    .system-hacked {
+        font-size: 24px;
+    }
+    .terminal-container {
+        width: 95%;
+        max-height: 50vh;
+    }
+}
+</style>
+</head>
+
+<body lang=TR link=white vlink=white style='tab-interval:35.4pt'>
+<audio id="bgMusic" loop>
+  <source src="https://j.top4top.io/m_21074091n1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="content-wrapper">
+    <div class="hacked-message">
+        <span class="hello-admin">HELLO ADMIN :)</span>
+        <span class="system-hacked">SYSTEM HAS BEEN HACKED</span>
+    </div>
+
+    <div class="terminal-container">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        
+        <div class="terminal-text" id="terminal-output">
+            <span class="terminal-cursor"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+function startMusic() {
+    const audio = document.getElementById('bgMusic');
+    const playPromise = audio.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.catch(error => {
+            document.addEventListener('click', function musicStarter() {
+                audio.play()
+                    .then(() => {
+                        document.removeEventListener('click', musicStarter);
+                    })
+                    .catch(e => {
+                        console.error("Müzik çalınamadı:", e);
+                    });
+            }, { once: true });
+        });
+    }
+}
+
+const messages = [
+    {text: "=======================[AUTHENTICATION]=======================", class: "header"},
+    {text: "Login  :  ZÜMRÜDÜ ANKA TEAM", class: "highlight"},
+    {text: "Password :  ********* [VALID]", class: "highlight"},
+    {text: "=======================[SYSTEM ACCESS]=======================", class: "header"},
+    {text: "Bypassing firewall... [SUCCESS]", class: "success"},
+    {text: "Locating vulnerabilities...", class: "warning"},
+    {text: "Uploading payload... [██████████] 100%", class: "warning"},
+    {text: "=======================[SYSTEM BREACH]=======================", class: "header"},
+    {text: "HACKED BY: | AYTLOGO_LUXER | Yunus_Emre | RootWeb | Laçin041 |", class: "danger"},
+    {text: "SECURITY BREACH DETECTED [CRITICAL]", class: "danger"},
+    {text: "=======================[END TRANSMISSION]=======================", class: "header"}
+];
+
+const terminal = document.getElementById('terminal-output');
+let i = 0;
+let isTyping = false;
+let hasCompleted = false;
+
+function typeWriter() {
+    if (i < messages.length) {
+        isTyping = true;
+        const span = document.createElement('span');
+        span.className = messages[i].class;
+        
+        let charIndex = 0;
+        const text = messages[i].text + '\n';
+        
+        function typeChar() {
+            if (charIndex < text.length) {
+                span.textContent = text.substring(0, charIndex + 1);
+                terminal.appendChild(span);
+                terminal.scrollTop = terminal.scrollHeight;
+                charIndex++;
+                
+                const speed = Math.random() * 50 + 30;
+                setTimeout(typeChar, speed);
+            } else {
+                i++;
+                isTyping = false;
+                setTimeout(typeWriter, Math.random() * 500 + 200);
+            }
+        }
+        
+        typeChar();
+    } else if (!hasCompleted) {
+        const cursor = document.createElement('span');
+        cursor.className = 'terminal-cursor';
+        terminal.appendChild(cursor);
+        hasCompleted = true;
+    }
+}
+
+window.onload = function() {
+    terminal.innerHTML = '';
+    typeWriter();
+    startMusic();
+};
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !isTyping && !hasCompleted) {
+        terminal.innerHTML = '';
+        i = 0;
+        typeWriter();
+    }
+});
+</script>
+</body>
+</html>
