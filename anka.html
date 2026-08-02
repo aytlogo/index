@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACKED BY ZÜMRÜDÜ ANKA TEAM</title>
+    <meta name="description" content="HACKED BY ZÜMRÜDÜ ANKA TEAM">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&family=Black+Ops+One&family=Audiowide&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        #webCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 950px;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.92);
+            border: 2px solid rgba(204, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 40px 35px;
+            box-shadow: 
+                0 0 60px rgba(204, 0, 0, 0.08),
+                inset 0 0 80px rgba(204, 0, 0, 0.02);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin: 20px 0;
+            transition: all 0.4s ease;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px solid rgba(204, 0, 0, 0.1);
+            border-radius: 14px;
+            pointer-events: none;
+            animation: borderGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { border-color: rgba(204, 0, 0, 0.1); }
+            50% { border-color: rgba(204, 0, 0, 0.25); }
+        }
+
+        .corner-tl {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 40px;
+            height: 40px;
+            border-top: 3px solid #cc0000;
+            border-left: 3px solid #cc0000;
+            border-radius: 12px 0 0 0;
+            opacity: 0.6;
+            transition: 0.4s ease;
+            box-shadow: -2px -2px 10px rgba(204, 0, 0, 0.1);
+        }
+
+        .corner-tr {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 40px;
+            height: 40px;
+            border-top: 3px solid #cc0000;
+            border-right: 3px solid #cc0000;
+            border-radius: 0 12px 0 0;
+            opacity: 0.6;
+            transition: 0.4s ease;
+            box-shadow: 2px -2px 10px rgba(204, 0, 0, 0.1);
+        }
+
+        .corner-bl {
+            position: absolute;
+            bottom: -2px;
+            left: -2px;
+            width: 40px;
+            height: 40px;
+            border-bottom: 3px solid #cc0000;
+            border-left: 3px solid #cc0000;
+            border-radius: 0 0 0 12px;
+            opacity: 0.6;
+            transition: 0.4s ease;
+            box-shadow: -2px 2px 10px rgba(204, 0, 0, 0.1);
+        }
+
+        .corner-br {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 40px;
+            height: 40px;
+            border-bottom: 3px solid #cc0000;
+            border-right: 3px solid #cc0000;
+            border-radius: 0 0 12px 0;
+            opacity: 0.6;
+            transition: 0.4s ease;
+            box-shadow: 2px 2px 10px rgba(204, 0, 0, 0.1);
+        }
+
+        .container:hover .corner-tl,
+        .container:hover .corner-tr,
+        .container:hover .corner-bl,
+        .container:hover .corner-br {
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 0 30px rgba(204, 0, 0, 0.15);
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            max-width: 180px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 30px rgba(204, 0, 0, 0.5));
+            animation: logoGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(204, 0, 0, 0.3)); }
+            50% { filter: drop-shadow(0 0 50px rgba(204, 0, 0, 0.7)); }
+        }
+
+        .main-title {
+            font-family: 'Black Ops One', 'Impact', 'Arial Black', cursive;
+            font-size: 4.5rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #cc0000, #ffffff, #cc0000, #ff4444);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(204, 0, 0, 0.15);
+            animation: gradientMove 4s ease-in-out infinite;
+            line-height: 1.1;
+            margin: 5px 0 5px 0;
+            transform: scale(1);
+            transition: 0.3s;
+        }
+
+        .main-title:hover {
+            transform: scale(1.02);
+            text-shadow: 0 0 100px rgba(204, 0, 0, 0.3);
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .thin-line {
+            width: 60%;
+            max-width: 400px;
+            height: 1.5px;
+            margin: 12px auto 12px auto;
+            background: linear-gradient(90deg, transparent, rgba(204, 0, 0, 0.5), rgba(255, 255, 255, 0.3), rgba(204, 0, 0, 0.5), transparent);
+            position: relative;
+            animation: linePulse 3s ease-in-out infinite;
+        }
+
+        .thin-line::before {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #cc0000;
+            font-size: 0.6rem;
+            opacity: 0.4;
+        }
+
+        @keyframes linePulse {
+            0%, 100% { opacity: 0.3; transform: scaleX(1); }
+            50% { opacity: 0.7; transform: scaleX(1.05); }
+        }
+
+        .admin-message {
+            background: rgba(13, 13, 13, 0.8);
+            border: 1px solid #cc000033;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin: 15px 0 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(204, 0, 0, 0.02), transparent 50%);
+            pointer-events: none;
+        }
+
+        .admin-message .title {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 1.5rem;
+            color: #cc0000;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            animation: blinkText 1.5s step-end infinite;
+        }
+
+        @keyframes blinkText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .admin-message .content {
+            font-size: 1.05rem;
+            color: #d0d0d0;
+            line-height: 2;
+            font-family: 'Courier New', monospace;
+        }
+
+        .admin-message .content .highlight-red {
+            color: #cc0000;
+            font-weight: 700;
+        }
+
+        .admin-message .content .highlight-white {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .admin-message .content .highlight-yellow {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .admin-message .content .glitch {
+            animation: glitchText 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glitchText {
+            0% { opacity: 1; transform: translateX(0); }
+            100% { opacity: 0.8; transform: translateX(3px); }
+        }
+
+        .admin-message .content .laugh {
+            animation: laughText 0.3s ease-in-out infinite alternate;
+        }
+
+        @keyframes laughText {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .admin-message .footer-line {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed #cc000022;
+            font-size: 0.9rem;
+            color: #666;
+            letter-spacing: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .admin-message .footer-line .highlight {
+            color: #cc0000;
+        }
+
+        .members-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 20px;
+            margin: 20px 0 25px 0;
+            background: rgba(13, 13, 13, 0.6);
+            padding: 18px 15px;
+            border-radius: 10px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .member {
+            background: #1a1a1a;
+            padding: 6px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #e0e0e0;
+            border: 1px solid #333;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .member:hover {
+            border-color: #cc0000;
+            color: #ffffff;
+            background: #220000;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(204, 0, 0, 0.15);
+        }
+
+        .member::before {
+            content: "✦ ";
+            color: #cc0000;
+            font-size: 0.7rem;
+            vertical-align: middle;
+        }
+
+        .footer-note {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid #1f1f1f;
+            padding-top: 18px;
+            letter-spacing: 2px;
+        }
+
+        .footer-note .highlight {
+            color: #cc0000;
+            font-weight: 700;
+        }
+
+        .footer-note .separator {
+            color: #2a2a2a;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 700px) {
+            .main-title {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+            .container {
+                padding: 25px 18px;
+                margin: 10px 0;
+            }
+            .members-grid {
+                border-radius: 8px;
+                padding: 15px 10px;
+                gap: 8px 12px;
+            }
+            .member {
+                font-size: 0.8rem;
+                padding: 4px 14px;
+            }
+            .admin-message .content {
+                font-size: 0.9rem;
+                line-height: 1.8;
+            }
+            .admin-message .title {
+                font-size: 1.2rem;
+            }
+            .corner-tl, .corner-tr, .corner-bl, .corner-br {
+                width: 25px;
+                height: 25px;
+                border-width: 2px;
+            }
+            .container:hover .corner-tl,
+            .container:hover .corner-tr,
+            .container:hover .corner-bl,
+            .container:hover .corner-br {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            .container {
+                padding: 18px 12px;
+                border-width: 1px;
+                margin: 8px 0;
+            }
+            .logo {
+                max-width: 130px;
+            }
+            .admin-message {
+                padding: 15px;
+            }
+            .admin-message .content {
+                font-size: 0.8rem;
+                line-height: 1.6;
+            }
+            .corner-tl, .corner-tr, .corner-bl, .corner-br {
+                width: 18px;
+                height: 18px;
+                border-width: 2px;
+            }
+            .container:hover .corner-tl,
+            .container:hover .corner-tr,
+            .container:hover .corner-bl,
+            .container:hover .corner-br {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="webCanvas"></canvas>
+
+    <div class="container">
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+
+        <div class="header">
+            <img class="logo" src="https://i.imgur.com/hzltIMf.png" alt="Zümrüdü Anka Team Logo" onerror="this.style.display='none'">
+        </div>
+
+        <div class="main-title">ZÜMRÜDÜ ANKA TEAM</div>
+        <div class="thin-line"></div>
+
+        <div class="admin-message">
+            <div class="title">
+                HOŞ GELDİN <span class="glitch">GÜVENLİK UZMANI</span>
+            </div>
+            <div class="content">
+                <span class="highlight-red">Zümrüdü Anka Team</span> olarak 
+                <span class="highlight-white">güvenlik duvarlarınızı</span> deldik.<br>
+                Sitenizdeki <span class="highlight-yellow">"güvenlik"</span> önlemleri 
+                <span class="highlight-red">çocuk oyuncağı</span> gibiydi.<br>
+                <span class="glitch">Verileriniz hala burada</span> — Ama 
+                <span class="highlight-white">istediğimiz anda</span> alabiliriz.<br>
+                <span class="laugh">Güle güle kullanın...</span>
+            </div>
+            <div class="footer-line">
+                <span class="highlight">ZÜMRÜDÜ ANKA TEAM</span>  — İstersen gel de yakala
+            </div>
+        </div>
+
+        <div class="members-grid">
+            <span class="member">Aytlogo_Luxer</span>
+            <span class="member">Kızıl_Tilki</span>
+            <span class="member">Laçin041</span>
+            <span class="member">KIRA BUSINESS</span>
+            <span class="member">SNOWY</span>
+            <span class="member">Yunus Emre</span>
+            <span class="member">RootWeb</span>
+            <span class="member">Treangle</span>
+            <span class="member">Ahkam Team</span>
+            <span class="member">Z1</span>
+
+        </div>
+
+        <div class="footer-note">
+            <div>
+                <span class="highlight">Zümrüdü Anka Team</span>
+                <span class="separator">|</span>
+                Güvenlik Araştırmacıları
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('webCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let mouseX = -1000;
+        let mouseY = -1000;
+        let points = [];
+        const pointCount = 65;
+        const connectionDistance = 200;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initPoints();
+        }
+
+        function initPoints() {
+            points = [];
+            for (let i = 0; i < pointCount; i++) {
+                points.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    color: Math.random() > 0.5 ? '#cc0000' : '#ffffff',
+                    size: 2 + Math.random() * 2.5,
+                    baseOpacity: 0.25 + Math.random() * 0.3
+                });
+            }
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        document.addEventListener('mouseleave', function() {
+            mouseX = -1000;
+            mouseY = -1000;
+        });
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            points.forEach((point, index) => {
+                const dx = mouseX - point.x;
+                const dy = mouseY - point.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 200 && dist > 0) {
+                    const force = (200 - dist) / 200 * 1.5;
+                    point.x -= (dx / dist) * force;
+                    point.y -= (dy / dist) * force;
+                }
+
+                point.x += point.vx;
+                point.y += point.vy;
+                point.vx += (Math.random() - 0.5) * 0.02;
+                point.vy += (Math.random() - 0.5) * 0.02;
+
+                const maxSpeed = 0.8;
+                if (Math.abs(point.vx) > maxSpeed) point.vx = Math.sign(point.vx) * maxSpeed;
+                if (Math.abs(point.vy) > maxSpeed) point.vy = Math.sign(point.vy) * maxSpeed;
+
+                if (point.x < 0) { point.x = 0; point.vx *= -1; }
+                if (point.x > canvas.width) { point.x = canvas.width; point.vx *= -1; }
+                if (point.y < 0) { point.y = 0; point.vy *= -1; }
+                if (point.y > canvas.height) { point.y = canvas.height; point.vy *= -1; }
+
+                let size = point.size;
+                let opacity = point.baseOpacity;
+                
+                if (dist < 200) {
+                    opacity = Math.min(0.9, opacity + 0.5);
+                    size = Math.min(4.5, size + 1.5);
+                }
+
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, size, 0, Math.PI * 2);
+                ctx.fillStyle = point.color;
+                ctx.globalAlpha = opacity;
+                ctx.shadowColor = point.color;
+                ctx.shadowBlur = dist < 200 ? 25 : 5;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.globalAlpha = 1;
+            });
+
+            for (let i = 0; i < points.length; i++) {
+                for (let j = i + 1; j < points.length; j++) {
+                    const dx = points[i].x - points[j].x;
+                    const dy = points[i].y - points[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < connectionDistance) {
+                        const midX = (points[i].x + points[j].x) / 2;
+                        const midY = (points[i].y + points[j].y) / 2;
+                        const mouseDist = Math.sqrt(
+                            Math.pow(mouseX - midX, 2) + 
+                            Math.pow(mouseY - midY, 2)
+                        );
+
+                        let opacity = (1 - dist / connectionDistance) * 0.35;
+                        let lineWidth = 0.5 + (1 - dist / connectionDistance) * 0.9;
+
+                        if (mouseDist < 150) {
+                            opacity = Math.min(0.8, opacity + 0.4);
+                            lineWidth = Math.min(2.8, lineWidth + 1);
+                        }
+
+                        const color1 = points[i].color;
+                        const color2 = points[j].color;
+                        let color;
+                        if (color1 === color2) {
+                            color = color1;
+                        } else {
+                            color = Math.random() > 0.5 ? '#cc0000' : '#ff6666';
+                        }
+
+                        ctx.beginPath();
+                        ctx.moveTo(points[i].x, points[i].y);
+                        ctx.lineTo(points[j].x, points[j].y);
+                        ctx.strokeStyle = color;
+                        ctx.globalAlpha = opacity;
+                        ctx.lineWidth = lineWidth;
+                        ctx.shadowColor = color;
+                        ctx.shadowBlur = mouseDist < 150 ? 15 : 2;
+                        ctx.stroke();
+                        ctx.shadowBlur = 0;
+                        ctx.globalAlpha = 1;
+                    }
+                }
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && (e.key === 'A' || e.key === 'a' || e.keyCode === 65)) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        window.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        console.log = function() {};
+        console.warn = function() {};
+        console.error = function() {};
+        console.clear = function() {};
+
+        setInterval(function() {
+            debugger;
+        }, 3000);
+
+        window.onkeydown = function(e) {
+            if (e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+                e.preventDefault();
+                return false;
+            }
+        };
+
+        document.querySelectorAll('.member').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+            });
+            el.addEventListener('mousedown', function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+
+</body>
+</html>
