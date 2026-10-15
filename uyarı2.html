@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zümrüdü Anka Team - Güvenlik Bildirimi</title>
+    <meta name="description" content="Zümrüdü Anka Team - Güvenlik açığı bildirimi ve etik hack ekibi.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: #0a0a0a;
+            border: 3px solid #cc0000;
+            border-radius: 20px;
+            padding: 30px 25px;
+            box-shadow: 0 0 60px rgba(204, 0, 0, 0.25), inset 0 0 60px rgba(204, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 20%;
+            right: 20%;
+            height: 4px;
+            background: linear-gradient(90deg, #cc0000, #ffffff, #cc0000);
+            border-radius: 10px;
+            opacity: 0.6;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .logo {
+            max-width: 180px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 20px rgba(204, 0, 0, 0.4));
+            pointer-events: none;
+        }
+
+        .team-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #cc0000, #8b0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(204, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .team-name::after {
+            content: '✦';
+            color: #cc0000;
+            -webkit-text-fill-color: #cc0000;
+            margin: 0 10px;
+            font-size: 1.8rem;
+            opacity: 0.5;
+        }
+
+        .team-name::before {
+            content: '✦';
+            color: #cc0000;
+            -webkit-text-fill-color: #cc0000;
+            margin: 0 10px;
+            font-size: 1.8rem;
+            opacity: 0.5;
+        }
+
+        .badge {
+            background: #1a1a1a;
+            border-left: 4px solid #cc0000;
+            padding: 12px 24px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            border: 1px solid #cc000055;
+            text-transform: uppercase;
+        }
+
+        .warning-box {
+            background: #0d0d0d;
+            border: 2px solid #cc0000;
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin: 25px 0 20px 0;
+            box-shadow: inset 0 0 40px rgba(204, 0, 0, 0.08), 0 0 30px rgba(204, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .warning-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .warning-title span {
+            background: #cc0000;
+            color: #ffffff;
+            padding: 0 20px;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .warning-desc {
+            font-size: 1.1rem;
+            margin-top: 15px;
+            color: #d0d0d0;
+            line-height: 1.8;
+            border-top: 1px dashed #cc000044;
+            padding-top: 18px;
+        }
+
+        .warning-desc strong {
+            color: #ffffff;
+        }
+
+        .members-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 20px;
+            margin: 25px 0 30px 0;
+            background: #0d0d0d;
+            padding: 18px 15px;
+            border-radius: 60px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .member {
+            background: #1a1a1a;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #e0e0e0;
+            border: 1px solid #333;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+
+        .member:hover {
+            border-color: #cc0000;
+            color: #ffffff;
+            background: #220000;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(204, 0, 0, 0.15);
+        }
+
+        .member::before {
+            content: "◆ ";
+            color: #cc0000;
+            font-size: 0.7rem;
+            vertical-align: middle;
+        }
+
+        .footer-note {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            color: #7a7a7a;
+            font-size: 0.9rem;
+            border-top: 1px solid #1f1f1f;
+            padding-top: 22px;
+        }
+
+        .footer-note .highlight {
+            color: #cc0000;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .footer-note .small-note {
+            font-size: 0.75rem;
+            color: #ffffff;
+            max-width: 600px;
+        }
+
+        .btn-ethical {
+            background: transparent;
+            border: 2px solid #cc0000;
+            color: #ffffff;
+            padding: 8px 30px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: default;
+            transition: 0.3s;
+            margin-top: 5px;
+            display: inline-block;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .btn-ethical:hover {
+            background: #cc000015;
+            box-shadow: 0 0 35px rgba(204, 0, 0, 0.15);
+            border-color: #ff0000;
+        }
+
+        .flag-motif {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 10px 0 5px 0;
+            opacity: 0.3;
+        }
+
+        .flag-motif span {
+            width: 30px;
+            height: 4px;
+            border-radius: 10px;
+        }
+
+        .flag-motif .red {
+            background: #cc0000;
+        }
+        .flag-motif .white {
+            background: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            .team-name {
+                font-size: 1.8rem;
+            }
+            .team-name::before,
+            .team-name::after {
+                font-size: 1.2rem;
+            }
+            .warning-title {
+                font-size: 1.4rem;
+            }
+            .members-grid {
+                border-radius: 30px;
+                padding: 15px 10px;
+                gap: 8px 12px;
+            }
+            .member {
+                font-size: 0.8rem;
+                padding: 4px 14px;
+            }
+            .container::before {
+                left: 10%;
+                right: 10%;
+            }
+        }
+
+        @keyframes pulseRed {
+            0% { box-shadow: 0 0 20px rgba(204, 0, 0, 0.1); }
+            50% { box-shadow: 0 0 40px rgba(204, 0, 0, 0.2); }
+            100% { box-shadow: 0 0 20px rgba(204, 0, 0, 0.1); }
+        }
+
+        .container {
+            animation: pulseRed 3s ease-in-out infinite;
+        }
+
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img class="logo" src="https://i.imgur.com/hzltIMf.png" alt="Zümrüdü Anka Team Logo" onerror="this.style.display='none'">
+        <div class="team-name">Zümrüdü Anka Team</div>
+        <div class="badge">✦ Etik Güvenlik Araştırması ✦</div>
+    </div>
+
+    <div class="flag-motif">
+        <span class="red"></span>
+        <span class="white"></span>
+        <span class="red"></span>
+        <span class="white"></span>
+        <span class="red"></span>
+    </div>
+
+    <div class="warning-box">
+        <div class="warning-title">
+            UYARI
+            <span>BİLDİRİM</span>
+        </div>
+        <div class="warning-desc">
+            <strong style="color:#fff;">Bu sitede güvenlik açıkları tespit edilmiştir.</strong><br>
+            Sitenizdeki zafiyetler, yetkisiz erişime veya veri sızıntısına neden olabilir.<br>
+            <span style="color:#cc0000; font-weight:600;">Lütfen en kısa sürede güvenlik önlemlerinizi gözden geçirin.</span><br>
+            <span style="display:inline-block;margin-top:10px;font-size:0.9rem;color:#888;">
+                — Bu bildirim yalnızca bilgilendirme amaçlıdır, hiçbir zarar verilmemiştir. —
+            </span>
+        </div>
+    </div>
+
+    <div class="members-grid">
+        <span class="member">Aytlogo_Luxer</span>
+        <span class="member">Kızıl_Tilki</span>
+        <span class="member">Laçin041</span>
+        <span class="member">Z1</span>
+        <span class="member">Yunus Emre</span>
+        <span class="member">RootWeb</span>
+        <span class="member">Treangle</span>
+        <span class="member">Ahkam Team</span>
+    </div>
+
+    <div class="footer-note">
+        <div class="btn-ethical">#NoDeface #OnlyNotify</div>
+        <div>
+            <span class="highlight">Zümrüdü Anka Team</span> — Güvenlik araştırmacıları
+        </div>
+        <div class="small-note">
+            Bu sayfa, sisteme herhangi bir müdahalede bulunmadan yalnızca açıkların varlığını bildirmek için oluşturulmuştur.<br>
+            Tespit edilen zafiyetlerle ilgili detaylı rapor için lütfen iletişime geçin.
+        </div>
+        <div style="margin-top: 8px; font-size: 0.7rem; color: #333;">
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && (e.key === 'A' || e.key === 'a' || e.keyCode === 65)) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    window.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    document.addEventListener('keyup', function(e) {
+        if (e.key === 'F12' || e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    window.onload = function() {
+        document.oncontextmenu = function() {
+            return false;
+        };
+    };
+
+    console.log = function() {};
+    console.warn = function() {};
+    console.error = function() {};
+
+    console.clear = function() {};
+
+    setInterval(function() {
+        debugger;
+    }, 1000);
+
+    window.onkeydown = function(e) {
+        if (e.key === 'F12' || e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
+            e.preventDefault();
+            return false;
+        }
+        if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+            e.preventDefault();
+            return false;
+        }
+    };
+
+    document.querySelectorAll('.member').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+        });
+        el.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+        });
+    });
+</script>
+
+</body>
+</html>
