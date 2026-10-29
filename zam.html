@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Breach</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    body {
+        background: #0a0a0a;
+        color: #e0e0e0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    body::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+        z-index: 0;
+    }
+
+    body::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 40%, rgba(255, 0, 0, 0.12), transparent 60%);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .scanline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.25) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+        pointer-events: none;
+        z-index: 5;
+        opacity: 0.5;
+    }
+
+    .terminal {
+        position: relative;
+        z-index: 10;
+        width: min(90%, 820px);
+        background: rgba(15, 15, 15, 0.92);
+        border: 1px solid #2a2a2a;
+        border-left: 4px solid #ff1a1a;
+        border-radius: 6px;
+        box-shadow:
+            0 0 0 1px rgba(255, 0, 0, 0.15),
+            0 0 40px rgba(255, 0, 0, 0.15),
+            inset 0 0 60px rgba(0, 0, 0, 0.8);
+        padding: 40px 36px;
+        animation: flicker 4s infinite;
+    }
+
+    @keyframes flicker {
+        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+        20%, 22%, 24%, 55% { opacity: 0.92; }
+    }
+
+    .terminal-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 28px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #222;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #333;
+    }
+    .dot.red { background: #ff1a1a; box-shadow: 0 0 8px #ff1a1a; }
+    .dot.white { background: #e0e0e0; }
+
+    .terminal-title {
+        margin-left: auto;
+        font-size: 12px;
+        color: #666;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .prompt {
+        color: #ff1a1a;
+        font-size: 14px;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
+
+    .prompt span {
+        color: #e0e0e0;
+    }
+
+    h1 {
+        font-size: clamp(20px, 3.6vw, 30px);
+        line-height: 1.5;
+        font-weight: 700;
+        color: #ffffff;
+        text-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+        margin-bottom: 24px;
+        letter-spacing: 0.5px;
+    }
+
+    h1 .accent {
+        color: #ff1a1a;
+        text-shadow: 0 0 16px rgba(255, 0, 0, 0.8);
+    }
+
+    .subtext {
+        color: #9a9a9a;
+        font-size: 15px;
+        line-height: 1.85;
+        margin-bottom: 30px;
+        border-left: 2px solid #ff1a1a;
+        padding-left: 16px;
+    }
+
+    .subtext .hl {
+        color: #e0e0e0;
+        font-weight: bold;
+    }
+
+    .subtext .joke {
+        color: #ffb3b3;
+        font-style: italic;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 10px;
+        height: 20px;
+        background: #ff1a1a;
+        margin-left: 4px;
+        vertical-align: middle;
+        animation: blink 1s steps(2) infinite;
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+
+    .footer-line {
+        margin-top: 30px;
+        padding-top: 16px;
+        border-top: 1px dashed #222;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #555;
+        letter-spacing: 1px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .footer-line .status {
+        color: #ff1a1a;
+    }
+
+    @media (max-width: 600px) {
+        .terminal { padding: 28px 20px; }
+        .subtext { font-size: 14px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="scanline"></div>
+
+<div class="terminal">
+    <div class="terminal-header">
+        <div class="dot red"></div>
+        <div class="dot white"></div>
+        <div class="dot"></div>
+        <div class="terminal-title">root@system // OneForc Ekibi</div>
+    </div>
+
+    <div class="prompt">&gt; erişim sağlandı<span>_</span></div>
+
+    <h1>
+        Personel maaşları <span class="accent">az.</span><br>
+        Güzel bir <span class="accent">zam</span> gelmezse<br>
+        saldırılar <span class="accent">devam edecek.</span>
+        <span class="cursor"></span>
+    </h1>
+
+    <div class="subtext">
+        <span class="hl">NOT:</span> En iyisi personele biraz zam yapın.<br>
+        <span class="joke">Biz de aslında maaşla geçiniyoruz, hacklemek hobiden ibaret.</span><br>
+        Sistem kilitlenmeden önce son uyarıdır. <span class="hl">Ciddiyim.</span>
+    </div>
+
+    <div class="footer-line">
+        <span class="status">DURUM: UYARI</span>
+        <span>ZAM BEKLENİYOR // PAZARLIK PAYI VAR</span>
+        <span>2026 // ROOT ACCESS</span>
+    </div>
+</div>
+
+</body>
+</html>
